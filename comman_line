@@ -1,0 +1,36 @@
+Flask:
+$ export FLASK_APP=run.py
+$ flask db init
+$ flask db migrate -m 'firs_migration_bookstore'
+$ flask db upgrade
+
+Flask shell:
+
+>> flask shell
+>>app
+>> from app import db
+>> from app.models import Book
+
+(Instance:)
+>> zohar = Book(title='Zohar', author='Rabbi Shimon', price = 0)
+
+>> Book.query.all()
+
+(To add book in our table:)
+>> db.session.add(zohar)
+
+(To save changes:)
+>> db.session.commit()
+
+Book.query.filter_by(author = 'Rabbi Shimon').first()   or .all()
+
+
+
+TO SEE the table got to postgress, ORM(bookstore) and do
+SELECT * from book
+
+
+
+flask db migrate -m'second_migration_with_table_and_relationsheep'
+
+flask db upgrade
